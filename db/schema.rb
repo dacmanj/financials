@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809164400) do
+ActiveRecord::Schema.define(:version => 20120809230213) do
 
   create_table "financial_statements", :force => true do |t|
     t.string   "title"
@@ -36,8 +36,11 @@ ActiveRecord::Schema.define(:version => 20120809164400) do
     t.string   "email"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "openid_url"
     t.string   "password_digest"
+    t.string   "identifier_url"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["identifier_url"], :name => "index_users_on_identifier_url", :unique => true
 
 end

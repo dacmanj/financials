@@ -1,13 +1,32 @@
-class User < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :email
-  has_many :financial_statements
-  def initialize(attributes = {})
-    @first_name  = attributes[:first_name]
-    @last_name  = attributes[:last_name]
-    @email = attributes[:email]
-  end
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  first_name      :string(255)
+#  last_name       :string(255)
+#  email           :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  openid_url      :string(255)
+#  password_digest :string(255)
+#
 
-  def formatted_email
-    "#{@first_name} #{@last_name} <#{@email}>"
-  end
+class User < ActiveRecord::Base
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
+  has_secure_password
+
+  has_many :financial_statements
+  
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
+  validates :first_name,  presence: true, length: { maximum: 50 }
+  validates :last_name,  presence: true, length: { maximum: 50 }
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
+
+  before_save { |user| user.email = email.downcase }
+
 end

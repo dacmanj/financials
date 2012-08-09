@@ -1,0 +1,33 @@
+<%= form_for(@lineitem) do |f| %>
+  <% if @lineitem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lineitem.errors.count, "error") %> prohibited this lineitem from being saved:</h2>
+
+      <ul>
+      <% @lineitem.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :account %><br />
+    <%= f.text_field :account %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :section %><br />
+    <%= f.text_field :section %>
+  </div>
+  <div class="field">
+    <%= f.label :order %><br />
+    <%= f.number_field :order %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @financial_statement.title %>
+</p>
+
+<p>
+  <b>Statement date:</b>
+  <%= @financial_statement.statement_date %>
+</p>
+
+<p>
+  <b>Chapter:</b>
+  <%= @financial_statement.chapter %>
+</p>
+
+
+<%= link_to 'Edit', edit_financial_statement_path(@financial_statement) %> |
+<%= link_to 'Back', financial_statements_path %>

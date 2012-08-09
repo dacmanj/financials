@@ -1,0 +1,29 @@
+<%= form_for(@financial_statement) do |f| %>
+  <% if @financial_statement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@financial_statement.errors.count, "error") %> prohibited this financial_statement from being saved:</h2>
+
+      <ul>
+      <% @financial_statement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :statement_date %><br />
+    <%= f.date_select :statement_date %>
+  </div>
+  <div class="field">
+    <%= f.label :chapter %><br />
+    <%= f.text_field :chapter %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

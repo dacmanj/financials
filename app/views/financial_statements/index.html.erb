@@ -1,0 +1,27 @@
+<h1>Listing financial_statements</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Statement date</th>
+    <th>Chapter</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @financial_statements.each do |financial_statement| %>
+  <tr>
+    <td><%= financial_statement.title %></td>
+    <td><%= financial_statement.statement_date %></td>
+    <td><%= financial_statement.chapter %></td>
+    <td><%= link_to 'Show', financial_statement %></td>
+    <td><%= link_to 'Edit', edit_financial_statement_path(financial_statement) %></td>
+    <td><%= link_to 'Destroy', financial_statement, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Financial statement', new_financial_statement_path %>

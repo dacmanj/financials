@@ -4,16 +4,17 @@ Financials::Application.routes.draw do
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
-  match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
-  
+  match "/auth/google/callback" => "sessions#create"
+  match "/signin" => redirect("/auth/google")
+  match "/signout" => "sessions#destroy", :as => :signout
+
   resources :lineitems
 
   resources :financial_statements
 
   resources :users
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions
 
 
   # The priority is based upon order of creation:

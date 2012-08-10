@@ -14,7 +14,7 @@
 
 class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
-  has_secure_password
+#  has_secure_password
 
   has_many :financial_statements
 
@@ -28,13 +28,21 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :first_name,  presence: true, length: { maximum: 50 }
   validates :last_name,  presence: true, length: { maximum: 50 }
-  validates :password, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
-
 
   
   def name
     [self.first_name, self.last_name].join(' ')
+  end
+
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      
+      user.first_name = auth["info"]["given_name"]
+      user.last_name = auth["info"]["family_name"]
+      user.email = auth["info"]["email"]
+    end
   end
 
   private

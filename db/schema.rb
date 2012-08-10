@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809230213) do
+ActiveRecord::Schema.define(:version => 20120810142313) do
 
   create_table "financial_statements", :force => true do |t|
     t.string   "title"
@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(:version => 20120809230213) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
-    t.string   "identifier_url"
     t.string   "remember_token"
+    t.boolean  "admin"
+    t.string   "provider"
+    t.string   "uid"
   end
-
-  add_index "users", ["identifier_url"], :name => "index_users_on_identifier_url", :unique => true
 
 end

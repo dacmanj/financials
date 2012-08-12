@@ -1,0 +1,16 @@
+C:/RailsInstaller/Ruby1.9.3/bin/ruby.exe extconf.rb 
+checking for ffi.h... no
+checking for ffi.h in /usr/local/include,/usr/include/ffi... no
+checking for rb_thread_blocking_region()... yes
+checking for ruby_native_thread_p()... yes
+checking for rb_thread_call_with_gvl()... yes
+creating extconf.h
+creating Makefile
+
+make
+Makefile:172: warning: overriding commands for target `C:/Users/dmanuel/Documents/Aptana'
+Makefile:163: warning: ignoring old commands for target `C:/Users/dmanuel/Documents/Aptana'
+generating ffi_c-i386-mingw32.def
+Configuring libffi
+/c/Users/dmanuel/Documents/Aptana Workspace/financials/omniauth-google-oauth2/ruby/1.9.1/gems/ffi-1.1.5/ext/ffi_c/libffi/configure: line 2659: /c/Users/dmanuel/Documents/Aptana: No such file or directory
+make: *** ["/c/Users/dmanuel/Documents/Aptana] Error 1

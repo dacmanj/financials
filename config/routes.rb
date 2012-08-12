@@ -4,8 +4,8 @@ Financials::Application.routes.draw do
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
-  match "/auth/google/callback" => "sessions#create"
-  match "/signin" => redirect("/auth/google")
+  match "/auth/google_oauth2/callback" => "sessions#create"
+  match "/signin" => redirect("/auth/google_oauth2")
   match "/signout" => "sessions#destroy", :as => :signout
 
   resources :lineitems

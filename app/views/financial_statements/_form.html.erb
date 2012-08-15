@@ -23,7 +23,14 @@
     <%= f.label :chapter %><br />
     <%= f.text_field :chapter %>
   </div>
+  
+  <%= f.fields_for :lineitems do |builder| %>
+	<%= render 'lineitem_fields', f: builder %>
+  <% end %>
+	<%= link_to_add_fields "Add Line", f, :lineitems %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

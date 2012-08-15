@@ -8,8 +8,11 @@
 #  email           :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  openid_url      :string(255)
 #  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean
+#  provider        :string(255)
+#  uid             :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -39,8 +42,8 @@ class User < ActiveRecord::Base
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       
-      user.first_name = auth["info"]["given_name"]
-      user.last_name = auth["info"]["family_name"]
+      user.first_name = auth["info"]["first_name"]
+      user.last_name = auth["info"]["last_name"]
       user.email = auth["info"]["email"]
     end
   end

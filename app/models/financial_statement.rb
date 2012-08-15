@@ -11,8 +11,10 @@
 #
 
 class FinancialStatement < ActiveRecord::Base
-  attr_accessible :title, :statement_date, :chapter, :user_id
-
+  attr_accessible :title, :statement_date, :chapter, :user_id, :lineitems_attributes
+  has_many :lineitems
+  accepts_nested_attributes_for :lineitems, allow_destroy: true
+ 
   belongs_to :user
 
   validates :title, :length => { :minimum => 0 }

@@ -1,0 +1,8 @@
+  	<fieldset>
+  		<%= f.label :account, "Account" %>
+  		<%= f.text_field :account %>
+  		<%= f.label :amount, "Amount" %>
+  		<%= f.text_field :amount %>
+  		<%= f.hidden_field :_destroy %>
+  		<%= link_to 'remove', '#', class: "remove_fields" %>
+	</fieldset>

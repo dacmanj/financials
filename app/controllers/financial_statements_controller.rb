@@ -24,7 +24,9 @@ class FinancialStatementsController < ApplicationController
   # GET /financial_statements/new
   # GET /financial_statements/new.json
   def new
+      
     @financial_statement = FinancialStatement.new
+    @lineitem = Lineitem.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +43,7 @@ class FinancialStatementsController < ApplicationController
   # POST /financial_statements.json
   def create
     @financial_statement = FinancialStatement.new(params[:financial_statement])
+    @lineitem = @financial_statement.lineitems.build(params[:lineitem])
 
     respond_to do |format|
       if @financial_statement.save

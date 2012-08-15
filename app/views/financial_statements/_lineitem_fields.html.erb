@@ -1,6 +1,6 @@
   	<fieldset>
   		<%= f.label :account, "Account" %>
-  		<%= f.text_field :account %>
+  		<%= collection_select(f, :account_id, Account.all, :id, :name) %>
   		<%= f.label :amount, "Amount" %>
   		<%= f.text_field :amount %>
   		<%= f.hidden_field :_destroy %>

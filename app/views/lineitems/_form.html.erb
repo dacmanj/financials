@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :account %><br />
-    <%= f.text_field :account %>
+    <%= f.label :account_id %><br />
+	<%= collection_select(:lineitem, :account_id, Account.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :amount %><br />
-    <%= f.text_field :amount %>
+    <%= f.number_field :amount %>
   </div>
   <div class="field">
     <%= f.label :section %><br />

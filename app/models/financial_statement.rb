@@ -17,7 +17,14 @@ class FinancialStatement < ActiveRecord::Base
   has_many :accounts
   accepts_nested_attributes_for :lineitems, allow_destroy: true
 
+  typeArray = ["Statement of Activities", "Statement of Financial Position"]
+
   belongs_to :user
 
   validates :title, :length => { :minimum => 0 }
+  
+  def type
+    typeArray.index(self.title);
+  end
+  
 end

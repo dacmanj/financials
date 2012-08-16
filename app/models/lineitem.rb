@@ -10,6 +10,7 @@
 #  financial_statement_id :integer
 #  user_id                :integer
 #  account_id             :integer
+#  section_id             :integer
 #
 
 class Lineitem < ActiveRecord::Base

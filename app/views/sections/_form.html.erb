@@ -15,4 +15,16 @@
     <%= f.label :name %>
 	<%= f.text_field :name %>
   </div>
+  <div class="field">
+    <%= f.label :order %>
+	<%= f.number_field :order %>
+  </div>
+  <div class="field">
+    <%= f.label :statement_type %>
+	<%= f.number_field :statement_type %>
+  </div>
+    
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

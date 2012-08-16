@@ -7,19 +7,20 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  section_id :integer
+#  side       :integer
 #
 
 class Account < ActiveRecord::Base
-  attr_accessible :name, :section_id, :side
+  attr_accessible :name, :section_id, :side_name, :side
   belongs_to :section;
   
-  def section
-      account = Section.find(self.section_id).name
+  def section_name
+      self.section.name
   end
 
-  def side
+  def side_name
       sideText = ['Debit', 'Invalid', 'Credit'] 
-      account = sideText[Section.find(self.section_id).side+1]
+      sideText[self.side.nil? ? 0 : self.side+1 ]
   end
   
 end

@@ -56,15 +56,15 @@ class AccountsController < ApplicationController
   # PUT /Accounts/1
   # PUT /Accounts/1.json
   def update
-    @Account = Account.find(params[:id])
+    @account = Account.find(params[:id])
 
     respond_to do |format|
-      if @Account.update_attributes(params[:Account])
-        format.html { redirect_to @Account, notice: 'Account was successfully updated.' }
+      if @account.update_attributes(params[:account])
+        format.html { redirect_to @account, notice: 'Account was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @Account.errors, status: :unprocessable_entity }
+        format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -72,8 +72,8 @@ class AccountsController < ApplicationController
   # DELETE /Accounts/1
   # DELETE /Accounts/1.json
   def destroy
-    @Account = Account.find(params[:id])
-    @Account.destroy
+    @account = Account.find(params[:id])
+    @account.destroy
 
     respond_to do |format|
       format.html { redirect_to Accounts_url }

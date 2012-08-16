@@ -19,6 +19,10 @@
     <%= f.label :section_id %><br />
 	<%= collection_select(:account, :section_id, Section.all, :id, :name) %>
   </div>
+  <div class="field">
+    <%= f.label :side %><br />
+    <%= f.select :side, {"Debit" => "-1", "Credit" => "1" } %>
+  </div>
   
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,6 @@
+<fieldset>
+	<%= f.label :name %><br />
+    <%= f.text_field :name %>
+    <%= f.label :section_id %><br />
+	<%= collection_select(:account, :section_id, Section.all, :id, :name) %>
+</fieldset>

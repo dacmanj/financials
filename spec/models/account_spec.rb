@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  section_id :integer
+#  side       :integer
 #
 
 require 'spec_helper'

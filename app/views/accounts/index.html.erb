@@ -13,8 +13,8 @@
 <% @accounts.each do |account| %>
   <tr>
     <td><%= account.name %></td>
-    <td><%= account.section %></td>
-    <td><%= account.side %></td>
+    <td><%= account.section_name %></td>
+    <td><%= account.side_name %></td>
     <td><%= link_to 'Show', account %></td>
     <td><%= link_to 'Edit', edit_account_path(account) %></td>
     <td><%= link_to 'Destroy', account, confirm: 'Are you sure?', method: :delete %></td>

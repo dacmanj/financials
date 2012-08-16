@@ -4,7 +4,6 @@
 #
 #  id                     :integer          not null, primary key
 #  amount                 :decimal(, )
-#  section                :string(255)
 #  order                  :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null

@@ -18,7 +18,8 @@ class Account < ActiveRecord::Base
   end
 
   def side
-      account = Section.find(self.section_id).side
+      sideText = ['Debit', 'Invalid', 'Credit'] 
+      account = sideText[Section.find(self.section_id).side+1]
   end
   
 end

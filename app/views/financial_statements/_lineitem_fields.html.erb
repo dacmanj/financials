@@ -1,9 +1,9 @@
   	<fieldset>
   		<%= f.label :account, "Account" %>
-  	<!--#f.collection_select(:account_id, Account.all, :id, :name, :include_blank => true ) -->
 		<%= f.grouped_collection_select(:account_id, Section.where(:statement_type => "0"), :accounts, :name, :id, :name) %>
+		<%= link_to 'New Account', new_account_path, target: "blank" %>
   		<%= f.label :amount, "Amount" %>
   		<%= f.text_field :amount %>
   		<%= f.hidden_field :_destroy %>
-  		<%= link_to 'remove', '#', class: "remove_fields" %>
+  		<%= link_to 'Remove', '#', class: "remove_fields" %>
 	</fieldset>

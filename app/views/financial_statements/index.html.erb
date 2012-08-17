@@ -1,6 +1,6 @@
 <h1>Listing Financial Statements</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Title</th>
     <th>Statement date</th>
@@ -17,7 +17,7 @@
     <td><%= financial_statement.chapter %></td>
     <td><%= link_to 'Show', financial_statement %></td>
     <td><%= link_to 'Edit', edit_financial_statement_path(financial_statement) %></td>
-    <td><%= link_to 'Destroy', financial_statement, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', financial_statement, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

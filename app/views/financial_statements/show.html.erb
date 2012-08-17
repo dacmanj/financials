@@ -1,6 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%= div_for(@financial_statement) do |f| %>
+  <% if @financial_statement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@financial_statement.errors.count, "error") %> prohibited this Financial Statement from being shown:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @financial_statement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<%= content_tag :h2, f.chapter %>
+	<%= content_tag :h2, f.title %>
+	<%= content_tag :h2, f.statement_date.to_formatted_s(:long) %>
+	<table class="table">
+	  	<%= content_tag_for :tr, f.lineitems do |builder| %>
+			<%= content_tag :td, builder.account, :class => "line_item_account_name" %>
+			<%= content_tag :td, number_to_currency(builder.amount), :class => "line_item_account_name"  %>
+		<% end %>
+	</table>
+
+<% end %>
 
 
 

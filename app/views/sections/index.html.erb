@@ -1,6 +1,6 @@
 <h1>Listing Sections</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Name</th>
     <th></th>
@@ -13,7 +13,7 @@
     <td><%= section.name %></td>
     <td><%= link_to 'Show', section %></td>
     <td><%= link_to 'Edit', edit_section_path(section) %></td>
-    <td><%= link_to 'Destroy', section, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', section, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

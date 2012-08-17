@@ -1,6 +1,6 @@
 <h1>Listing Line Items</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Account</th>
     <th>Amount</th>
@@ -19,7 +19,7 @@
     <td><%= lineitem.order %></td>
     <td><%= link_to 'Show', lineitem %></td>
     <td><%= link_to 'Edit', edit_lineitem_path(lineitem) %></td>
-    <td><%= link_to 'Destroy', lineitem, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', lineitem, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

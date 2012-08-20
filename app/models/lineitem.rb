@@ -18,11 +18,11 @@ class Lineitem < ActiveRecord::Base
   belongs_to :financial_statement
   belongs_to :account
   belongs_to :section
-  
-  validates :amount, :presence => true
+   validates :amount, :presence => true
   validates :account_id, :presence => true
   accepts_nested_attributes_for :account
 
+  
   def account
       account = Account.find(self.account_id).name
   end

@@ -15,13 +15,13 @@
     <td><%= financial_statement.title %></td>
     <td><%= financial_statement.statement_date %></td>
     <td><%= financial_statement.chapter %></td>
-    <td><%= link_to 'Show', financial_statement %></td>
-    <td><%= link_to 'Edit', edit_financial_statement_path(financial_statement) %></td>
-    <td><%= link_to 'Delete', financial_statement, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', financial_statement, :class => 'btn btn-mini btn-primary' %></td>
+    <td><%= link_to 'Edit', edit_financial_statement_path(financial_statement), :class => 'btn btn-mini btn-primary'  %></td>
+    <td><%= link_to 'Delete', financial_statement, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger'  %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Financial statement', new_financial_statement_path %>
+<%= link_to 'New Financial statement', new_financial_statement_path, :class => 'btn btn-mini btn-primary'  %>

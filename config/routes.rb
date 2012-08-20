@@ -7,7 +7,10 @@ Financials::Application.routes.draw do
   match "/auth/google_oauth2/callback" => "sessions#create"
   match "/signin" => redirect("/auth/google_oauth2")
   match "/signout" => "sessions#destroy", :as => :signout
+  match "/newsoa" => "financial_statements#new", :defaults => { :title => 'Statement of Activities'}
+  match "/newsfp" => "financial_statements#new", :defaults => { :title => 'Statement of Financial Position'}
 
+#  match 'photos/:id' => 'photos#show', :defaults => { :format => 'jpg' }
   resources :lineitems
 
   resources :financial_statements

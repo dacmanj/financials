@@ -21,7 +21,12 @@
   </div>
   <div class="field">
     <%= f.label :statement_type %>
-	<%= f.number_field :statement_type %>
+    <%= f.select :statement_type, { "Statement of Activities" => "0", "Statement of Financial Position" => "1" } %>
+
+  </div>
+  <div class="field">
+    <%= f.label :side %><br />
+    <%= f.select :side, { "Debit" => "-1", "Credit" => "1" } %>
   </div>
     
   <div class="actions">

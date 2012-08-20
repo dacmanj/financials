@@ -26,8 +26,35 @@ class FinancialStatementsController < ApplicationController
   def new
       
     @financial_statement = FinancialStatement.new
-    @lineitem = Lineitem.new
+    @financial_statement.title = params[:title]
+    @financial_statement.statement_date = Date.new(2012,9,30)
 
+    if (params[:title] == "Statement of Activities")
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Member Dues").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Special Events").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Individual Gifts").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Corporate Support").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Foundation Support").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Product Sales").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Interest and Dividends").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Wages and Benefits").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Rent").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Internet access and telephone services").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Postage").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Supplies").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Web Hosting").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Depreciation Expense").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Lobbying: Grassroots").id)
+      @financial_statement.lineitems.build(:account_id => 20)
+    else
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Cash and Cash equivalents").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Special Events").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Special Events").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Special Events").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Special Events").id)
+      @financial_statement.lineitems.build(:account_id => Account.find_by_name("Special Events").id)
+  
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @financial_statement }
@@ -43,7 +70,6 @@ class FinancialStatementsController < ApplicationController
   # POST /financial_statements.json
   def create
     @financial_statement = FinancialStatement.new(params[:financial_statement])
-    @lineitem = @financial_statement.lineitems.build(params[:lineitem])
 
     respond_to do |format|
       if @financial_statement.save

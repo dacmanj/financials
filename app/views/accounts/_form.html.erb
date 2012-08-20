@@ -21,11 +21,12 @@
   </div>
   <div class="field">
     <%= f.label :side %><br />
-    <%= f.select :side, {"Debit" => "-1", "Credit" => "1" } %>
+    <%= f.select :side, {"Auto" => 0, "Debit" => "-1", "Credit" => "1" } %>
   </div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-primary' %>
+
   </div>
 <% end %>
 

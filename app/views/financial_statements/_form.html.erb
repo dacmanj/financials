@@ -1,4 +1,4 @@
-<%= form_for(@financial_statement) do |f| %>
+<%= form_for(@financial_statement, :html => {:class => "form-horizontal"}) do |f| %>
   <% if @financial_statement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@financial_statement.errors.count, "error") %> prohibited this financial_statement from being saved:</h2>
@@ -10,27 +10,43 @@
       </ul>
     </div>
   <% end %>
+<!--	<fieldset>
+	  <div class="control-group">
+	    <%= f.label :title, { :class => 'control-label' } %>
+	    	<div class="controls">
+		    	<%= f.select :title, { "Statement of Activities" => "Statement of Activities", "Statement of Financial Position" => "Statement of Financial Position" } %>
+			</div>
+	  </div>
+</fieldset>-->
+	<fieldset>
+	  <div class="control-group">
+	    <%= f.label :statement_date, { :class => 'control-label' } %>
+	    	<div class="controls">
+	    	    <%= f.date_select :statement_date %>
+   	            <p class="help-block">Your fiscal year end is always September 30th.</p>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :statement_date %><br />
-    <%= f.date_select :statement_date %>
-  </div>
-  <div class="field">
-    <%= f.label :chapter %><br />
-    <%= f.text_field :chapter %>
-  </div>
-  
-  <%= f.fields_for :lineitems do |builder| %>
-	<%= render 'lineitem_fields', f: builder %>
-  <% end %>
-	<%= link_to_add_fields "Add Line", f, :lineitems %>
+			</div>
+	  </div>
+	</fieldset>
+	<fieldset>
+	  <div class="control-group">
+	    <%= f.label :chapter, { :class => 'control-label' } %>
+	    	<div class="controls">
+			    <%= f.text_field :chapter %>
+	   	        <p class="help-block">Supporting help text</p>
+			</div>
+	  </div>
+	</fieldset>
+<!--    <legend>Revenue</legend>
+    <legend>Expenses</legend>-->
 
+	  <%= f.fields_for :lineitems do |builder| %>
+		<%= render 'lineitem_fields', f: builder %>
+	  <% end %>
+	<%= button_to_add_fields "Add Line", f, :lineitems %>
+	<br><br>
   <div class="actions">
-    <%= f.submit %>
+        <%= f.submit 'Save', :class => "btn btn-large btn-success" %>
   </div>
 <% end %>
 

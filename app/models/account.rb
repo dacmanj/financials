@@ -13,7 +13,12 @@
 class Account < ActiveRecord::Base
   attr_accessible :name, :section_id, :side_name, :side
   belongs_to :section;
-  
+  before_save {
+    if self.side == 0
+      self.side = self.section.side;
+    end
+
+  }
   def section_name
       self.section.name
   end

@@ -6,6 +6,7 @@
     <th>Amount</th>
     <th>Section</th>
     <th>Order</th>
+    <th>Financial Statement ID</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +18,7 @@
     <td><%= lineitem.amount %></td>
     <td><%= lineitem.section %></td>
     <td><%= lineitem.order %></td>
+    <td><%= lineitem.financial_statement_id %></td>
     <td><%= link_to 'Show', lineitem %></td>
     <td><%= link_to 'Edit', edit_lineitem_path(lineitem) %></td>
     <td><%= link_to 'Delete', lineitem, confirm: 'Are you sure?', method: :delete %></td>

@@ -27,4 +27,6 @@ class FinancialStatement < ActiveRecord::Base
     typeArray.index(self.title);
   end
   
+
+  
 end
